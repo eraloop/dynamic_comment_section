@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "@/static/css/style.css"
+import "@/static/css/comments.css"
 
 import '../src/assets/sass/style.sass'
 
