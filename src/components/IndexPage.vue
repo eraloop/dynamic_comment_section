@@ -6,8 +6,8 @@
           <button class="increment-vote">
             <img
               src="../static/images/icon-plus.svg"
-              height="10px"
-              width="10px"
+              height="11px"
+              width="11px"
             />
           </button>
 
@@ -44,6 +44,7 @@
                 height="10px"
                 width="15px"
               />
+              Reply
             </button>
           </div>
         </div>
@@ -117,10 +118,6 @@ export default {
   font-family: "Rubik-Medium";
 }
 
-.voteCount h5 {
-  font-family: "Rubik-Bold";
-}
-
 .votting-sect button {
   background: none;
   border: none;
@@ -142,17 +139,32 @@ export default {
   font-size: 14px;
   font-family: "Rubik-Medium";
   color: hsl(212, 24%, 26%);
+  padding: 0 13px;
+  text-transform: lowercase;
+}
+
+.comment-head p {
+  text-transform: lowercase;
+  color: hsl(211, 10%, 45%);
+  font-family: "Rubik-Regular";
+  font-size: 13px;
 }
 
 .comment-text {
   font-family: "Rubik-Regular";
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
   color: hsl(211, 10%, 45%);
-  margin: 10px 0;
+  margin: 10px 30px 0 0;
 }
 
 .comment-action {
   padding: 0 10px;
+}
+
+.comment-action button {
+  background: none;
+  color: hsl(238, 40%, 52%);
+  font-family: "Rubik-Medium";
 }
 </style>

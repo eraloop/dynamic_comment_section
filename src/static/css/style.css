@@ -1,6 +1,12 @@
 button{
+    cursor: pointer;
+    background: none;
     border: none;
-    background-color: none;
+}
+
+button:hover{
+    background:  hsl(239, 57%, 85%);
+    transition: ease .8s;
 }
 
 /* *{
