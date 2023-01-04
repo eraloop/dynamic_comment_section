@@ -13,6 +13,7 @@
 
 #app {
   background: hsl(228, 33%, 97%);
+  /* height: 100vh; */
   max-height: 100%;
   width: 100%;
   display: flex;
