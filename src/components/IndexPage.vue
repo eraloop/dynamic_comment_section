@@ -58,6 +58,21 @@
         </div>
       </div>
     </div>
+
+    <div class="reply-sec">
+      <div class="profile">
+        <img
+          src="../static/images/avatars/image-maxblagun.png"
+          height="40px"
+          width="40px"
+        />
+      </div>
+
+      <div class="comment-box">
+        <textarea class="reply-input" type="text" />
+        <button class="reply-btn">Reply</button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -97,6 +112,47 @@ export default {
   box-shadow: 0 3px 10px hsl(223, 19%, 93%);
   border: none;
   padding: 10px;
+}
+
+.reply-sec {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  height: 120px;
+  width: 600px;
+  background: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px hsl(223, 19%, 93%);
+  border: none;
+  padding: 20px;
+  margin: 5px 0;
+}
+
+.comment-box {
+  display: flex;
+  align-items: start;
+}
+
+.reply-input {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  border: 1px solid hsl(211, 10%, 45%);
+  color: hsl(211, 10%, 45%);
+  padding: 10px;
+  font-size: 14px;
+}
+
+.reply-btn {
+  background: hsl(238, 40%, 52%);
+  color: hsl(0, 0%, 100%);
+  padding: 10px 15px;
+  border-radius: 7px;
+  margin: 0 5px;
+  text-transform: uppercase;
 }
 
 .votting-sect {
