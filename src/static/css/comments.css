@@ -1,5 +1,5 @@
 
-.comment {
+.comment{
   display: grid;
   align-items: center;
   justify-content: center;
@@ -143,4 +143,8 @@
   border-left: 2px solid hsl(239, 57%, 85%);
   /* height: 200px; */
   height: 100%;
+}
+
+.reply{
+    margin: 10px 0;
 }

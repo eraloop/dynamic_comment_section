@@ -52,24 +52,8 @@
       </div>
     </div>
 
-    <div v-if="replyMessage" class="reply-sec">
-      <div class="profile">
-        <img
-          src="../static/images/avatars/image-maxblagun.png"
-          height="40px"
-          width="40px"
-        />
-      </div>
+    <ReplyBoxComponent :replyMessage="replyMessage" :id="comment.id" />
 
-      <div class="comment-box">
-        <textarea v-model="replyContent" class="reply-input" type="text" />
-        <button @click="sendReply" :disabled="isDisabled" class="reply-btn">
-          Reply
-        </button>
-      </div>
-    </div>
-
-    <!-- Replies -->
     <div class="comment_replies">
       <div class="comment-replies">
         <div class="vertical-line">
@@ -111,7 +95,7 @@
                 </div>
 
                 <div class="comment-action">
-                  <button @click="launchReply" class="reply">
+                  <button @click="launchReplyComment" class="reply">
                     <img
                       src="../static/images/icon-reply.svg"
                       height="10px"
@@ -127,6 +111,7 @@
                 </p>
               </div>
             </div>
+            <ReplyBoxComponent :replyMessage="replyMessage" :id="reply.id" />
           </div>
         </div>
       </div>
@@ -134,20 +119,23 @@
   </div>
 </template>
 <script>
+import ReplyBoxComponent from "./ReplyBoxComponent.vue";
+
 export default {
+  name: "CommentComponent",
+
   props: {
     comment: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
 
-  components: {},
+  components: { ReplyBoxComponent },
   data() {
     return {
       replyMessage: false,
       replyContent: "",
-      pic: require(`../static/images/avatars/image-amyrobson.png`),
     };
   },
   computed: {
@@ -157,6 +145,9 @@ export default {
   },
   methods: {
     launchReply() {
+      this.replyMessage = !this.replyMessage;
+    },
+    launchReplyComment() {
       this.replyMessage = !this.replyMessage;
     },
 
