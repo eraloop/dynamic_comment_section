@@ -130,7 +130,7 @@
   grid-template-columns: 1fr 9fr;
   grid-gap: 1em;
   height: 100%;
-  width: 100%;
+  width: inherit;
   margin: 20px 0;
 }
 .vertical-line {

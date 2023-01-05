@@ -3,7 +3,7 @@
     <div class="comment">
       <div class="votting-sect">
         <div class="votting-btn">
-          <button class="increment-vote">
+          <button @click="voteCountUp(comment)" class="increment-vote">
             <img
               src="../static/images/icon-plus.svg"
               height="11px"
@@ -15,7 +15,7 @@
             <h5>{{ comment.voteCount }}</h5>
           </div>
 
-          <button class="decrement-vote">
+          <button @click="voteCountDown(comment)" class="decrement-vote">
             <img
               src="../static/images/icon-minus.svg"
               height="3px"
@@ -64,7 +64,7 @@
           <div v-for="reply in comment.replies" :key="reply.id" class="comment">
             <div class="votting-sect">
               <div class="votting-btn">
-                <button class="increment-vote">
+                <button @click="voteCountUp(reply)" class="increment-vote">
                   <img
                     src="../static/images/icon-plus.svg"
                     height="11px"
@@ -76,7 +76,7 @@
                   <h5>{{ reply.voteCount }}</h5>
                 </div>
 
-                <button class="decrement-vote">
+                <button @click="voteCountDown(reply)" class="decrement-vote">
                   <img
                     src="../static/images/icon-minus.svg"
                     height="3px"
@@ -111,7 +111,8 @@
                 </p>
               </div>
             </div>
-            <ReplyBoxComponent :replyMessage="replyMessage" :id="reply.id" />
+
+            <!-- <ReplyBoxComponent :replyMessage="replyMessage" :id="reply.id" /> -->
           </div>
         </div>
       </div>
@@ -143,10 +144,12 @@ export default {
       return !this.replyContent;
     },
   },
+
   methods: {
     launchReply() {
       this.replyMessage = !this.replyMessage;
     },
+
     launchReplyComment() {
       this.replyMessage = !this.replyMessage;
     },
@@ -156,7 +159,30 @@ export default {
       this.replyContent = "";
       this.replyMessage = false;
     },
+
+    voteCountUp(payload) {
+      if (payload.id && payload.pId) {
+        this.$store.dispatch("voteCountUp", {
+          id: payload.id,
+          pid: payload.pId,
+        });
+        return;
+      }
+      this.$store.dispatch("voteCountUp", { id: payload.id });
+    },
+
+    voteCountDown(payload) {
+      if (payload.id && payload.pId) {
+        this.$store.dispatch("voteCountDown", {
+          id: payload.id,
+          pid: payload.pId,
+        });
+        return;
+      }
+      this.$store.dispatch("voteCountDown", { id: payload.id });
+    },
   },
+
   mounted: function () {
     if (this.replyContent !== "") {
       this.replyMessage = true;
